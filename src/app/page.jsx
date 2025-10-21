@@ -1,6 +1,7 @@
 import { BentoCard } from '@/components/bento-card'
 import { Button } from '@/components/button'
 import { Container } from '@/components/container'
+import { Features } from '@/components/features'
 import { Footer } from '@/components/footer'
 import { Gradient } from '@/components/gradient'
 import { Keyboard } from '@/components/keyboard'
@@ -189,11 +190,81 @@ function DarkBentoSection() {
   )
 }
 
+const timeline = [
+  {
+    name: 'We Research Your Ideal Clients',
+    description:
+      'We handpick verified decision-makers that match your ICP — no scraped lists, no spam.',
+    date: 'Step 1',
+    dateTime: 'Step 1',
+  },
+  {
+    name: 'We Craft Personalized Cold Emails',
+    description:
+      'Our copywriters create human, data-backed emails that earn replies — not unsubscribes.',
+    date: 'Step 2',
+    dateTime: 'Step 2',
+  },
+  {
+    name: 'We Book Meetings on Your Calendar',
+    description:
+      'Once a lead says yes, we handle scheduling through Calendly. You just show up to close.',
+    date: 'Step 3',
+    dateTime: 'Step 3',
+  },
+]
+
+export function Process() {
+  return (
+    <div className="bg-white py-10 sm:py-22">
+      <Container className="pb-8 sm:pb-14">
+        <Subheading>Sales</Subheading>
+        <Heading as="h3" className="mt-2 max-w-3xl">
+          Know more about your customers than they do.
+        </Heading>
+      </Container>
+      <div className="mx-auto max-w-7xl px-6 lg:px-2">
+        <div className="mx-auto grid max-w-2xl grid-cols-1 gap-8 overflow-hidden lg:mx-0 lg:max-w-none lg:grid-cols-4">
+          {timeline.map((item) => (
+            <div key={item.name}>
+              <time
+                dateTime={item.dateTime}
+                className="flex items-center text-sm/6 font-semibold [color:#DB7EDB] text-pink-600"
+              >
+                <svg
+                  viewBox="0 0 4 4"
+                  aria-hidden="true"
+                  className="mr-4 size-1 flex-none"
+                >
+                  <circle r={2} cx={2} cy={2} fill="currentColor" />
+                </svg>
+                {item.date}
+                <div
+                  aria-hidden="true"
+                  className="absolute -ml-2 h-px w-screen -translate-x-full bg-[#DB7EDB] sm:-ml-4 lg:static lg:-mr-6 lg:ml-8 lg:w-auto lg:flex-auto lg:translate-x-0"
+                />
+              </time>
+              <p className="mt-6 text-lg/8 font-semibold tracking-tight text-gray-900">
+                {item.name}
+              </p>
+              <p className="mt-1 text-base/7 text-gray-600">
+                {item.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
+
 export default function Home() {
   return (
     <div className="overflow-hidden">
       <Hero />
+      <Process />
       <main>
+        <Features />
         <Container className="mt-10">
           <LogoCloud />
         </Container>

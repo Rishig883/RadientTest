@@ -3,7 +3,7 @@ import { Button } from './button'
 import { Container } from './container'
 import { Gradient } from './gradient'
 import { Link } from './link'
-import { Logo } from './logo'
+import { Logo } from './logoCalavor'
 import { Subheading } from './text'
 
 function CallToAction() {
