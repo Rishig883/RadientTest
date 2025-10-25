@@ -1,17 +1,20 @@
+import { Faq } from '@/components/FAQ'
 import { BentoCard } from '@/components/bento-card'
 import { Button } from '@/components/button'
+import { Contact } from '@/components/contact'
 import { Container } from '@/components/container'
-import { Features } from '@/components/features'
 import { Footer } from '@/components/footer'
 import { Gradient } from '@/components/gradient'
 import { Keyboard } from '@/components/keyboard'
 import { Link } from '@/components/link'
 import { LinkedAvatars } from '@/components/linked-avatars'
 import { LogoCloud } from '@/components/logo-cloud'
+import { LogoCloudCerts } from '@/components/logo-cloud-certs'
 import { LogoCluster } from '@/components/logo-cluster'
 import { LogoTimeline } from '@/components/logo-timeline'
 import { Map } from '@/components/map'
 import { Navbar } from '@/components/navbar'
+import { Pricing } from '@/components/pricing'
 import { Screenshot } from '@/components/screenshot'
 import { Testimonials } from '@/components/testimonials'
 import { Heading, Subheading } from '@/components/text'
@@ -212,11 +215,18 @@ const timeline = [
     date: 'Step 3',
     dateTime: 'Step 3',
   },
+  {
+    name: 'Finally We Book Meetings on Your Calendar',
+    description:
+      'Once a lead says yes, we handle scheduling through Calendly. You just show up to close.',
+    date: 'Step 4',
+    dateTime: 'Step 4',
+  },
 ]
 
 export function Process() {
   return (
-    <div className="bg-white py-10 sm:py-22">
+    <div className="bg-white py-10 sm:py-22 sm:pt-32">
       <Container className="pb-8 sm:pb-14">
         <Subheading>Sales</Subheading>
         <Heading as="h3" className="mt-2 max-w-3xl">
@@ -262,19 +272,23 @@ export default function Home() {
   return (
     <div className="overflow-hidden">
       <Hero />
-      <Process />
       <main>
-        <Features />
         <Container className="mt-10">
           <LogoCloud />
         </Container>
-        <div className="bg-linear-to-b from-white from-50% to-gray-100 py-32">
-          <FeatureSection />
+        <Process />
+        <Pricing />
+        <Container className="mt-10">
+          <LogoCloudCerts />
+        </Container>
+
+        <div className="pt-32">
           <BentoSection />
+          <Testimonials />
         </div>
-        <DarkBentoSection />
+        <Faq />
+        <Contact />
       </main>
-      <Testimonials />
       <Footer />
     </div>
   )
