@@ -7,34 +7,35 @@ import { MinusSmallIcon, PlusSmallIcon } from '@heroicons/react/24/outline'
 
 const faqs = [
   {
-    question: "What's the best thing about Switzerland?",
+    question: 'What exactly does Calavor do?',
     answer:
-      "I don't know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.",
+      'Calavor helps B2B companies book qualified sales meetings with real decision-makers. We handle prospect research, personalized outreach, and scheduling so you can focus on closing deals instead of finding them.',
   },
   {
-    question: 'How do you make holy water?',
+    question: 'Who is this service best suited for?',
     answer:
-      'You boil the hell out of it. Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam aut tempora vitae odio inventore fuga aliquam nostrum quod porro. Delectus quia facere id sequi expedita natus.',
+      'Our service is designed for B2B businesses, agencies, and sales teams that want consistent meetings with ideal clients without managing cold outreach themselves.',
   },
   {
-    question: 'What do you call someone with no body and no nose?',
+    question:
+      'How is Calavor different from lead lists or appointment setters?',
     answer:
-      'Nobody knows. Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, voluptas ipsa quia excepturi, quibusdam natus exercitationem sapiente tempore labore voluptatem.',
+      'We don’t buy or scrape email lists. Every prospect is manually verified and every email is personalized. You only pay when a qualified meeting actually happens, not for leads or messages.',
   },
   {
-    question: 'Why do you never see elephants hiding in trees?',
+    question: 'What makes a meeting qualified?',
     answer:
-      "Because they're so good at it. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.",
+      'A qualified meeting means the person you’re meeting with matches your target audience and has real decision-making authority. If they don’t meet those standards, you don’t pay.',
   },
   {
-    question: "Why can't you hear a pterodactyl go to the bathroom?",
+    question: 'How soon can I expect my first meetings?',
     answer:
-      'Because the pee is silent. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, quas voluptatibus ex culpa ipsum, aspernatur blanditiis fugiat ullam magnam suscipit deserunt illum natus facilis atque vero consequatur! Quisquam, debitis error.',
+      'Most clients begin seeing booked meetings within 7 to 14 days of launch. Timelines can vary based on your target audience and campaign setup.',
   },
   {
-    question: 'Why did the invisible man turn down the job offer?',
+    question: 'How do I get started?',
     answer:
-      "He couldn't see himself doing it. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet perspiciatis officiis corrupti tenetur. Temporibus ut voluptatibus, perferendis sed unde rerum deserunt eius.",
+      'Simply book a quick call with us to review your goals. We’ll define your target audience, launch your campaign, and start delivering qualified meetings right to your calendar.',
   },
 ]
 

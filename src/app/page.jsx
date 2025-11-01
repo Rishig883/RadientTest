@@ -1,7 +1,6 @@
 import { Faq } from '@/components/FAQ'
 import { BentoCard } from '@/components/bento-card'
 import { Button } from '@/components/button'
-import { Contact } from '@/components/contact'
 import { Container } from '@/components/container'
 import { Footer } from '@/components/footer'
 import { Gradient } from '@/components/gradient'
@@ -9,7 +8,6 @@ import { Keyboard } from '@/components/keyboard'
 import { Link } from '@/components/link'
 import { LinkedAvatars } from '@/components/linked-avatars'
 import { LogoCloud } from '@/components/logo-cloud'
-import { LogoCloudCerts } from '@/components/logo-cloud-certs'
 import { LogoCluster } from '@/components/logo-cluster'
 import { LogoTimeline } from '@/components/logo-timeline'
 import { Map } from '@/components/map'
@@ -33,10 +31,10 @@ function Hero() {
         <Navbar
           banner={
             <Link
-              href="/blog/radiant-raises-100m-series-a-from-tailwind-ventures"
+              href="#pricing2"
               className="flex items-center gap-1 rounded-full bg-fuchsia-950/35 px-3 py-0.5 text-sm/6 font-medium text-white data-hover:bg-fuchsia-950/30"
             >
-              Radiant raises $100M Series A from Tailwind Ventures
+              Intro Offer: Book Your First 5 Meetings for Just $249
               <ChevronRightIcon className="size-4" />
             </Link>
           }
@@ -50,9 +48,9 @@ function Hero() {
             connect you with decision-makers who are ready to talk business.
           </p>
           <div className="mt-12 flex flex-col gap-x-6 gap-y-4 sm:flex-row">
-            <Button href="#">Get started</Button>
-            <Button variant="secondary" href="/pricing">
-              See pricing
+            <Button href="#">Start Booking Meetings</Button>
+            <Button variant="secondary" href="#process">
+              How it works
             </Button>
           </div>
         </div>
@@ -82,16 +80,16 @@ function FeatureSection() {
 function BentoSection() {
   return (
     <Container>
-      <Subheading>Sales</Subheading>
+      <Subheading>Process</Subheading>
       <Heading as="h3" className="mt-2 max-w-3xl">
-        Know more about your customers than they do.
+        How We Work: From Prospect to Meeting
       </Heading>
 
       <div className="mt-10 grid grid-cols-1 gap-4 sm:mt-16 lg:grid-cols-6 lg:grid-rows-2">
         <BentoCard
-          eyebrow="Insight"
-          title="Get perfect clarity"
-          description="Radiant uses social engineering to build a detailed financial picture of your leads. Know their budget, compensation package, social security number, and more."
+          eyebrow="Step 1"
+          title="Define Your Ideal Client Profile"
+          description="We define your target audience by analyzing industry, company size, roles, and location to build a precise profile that guides every outreach."
           graphic={
             <div className="h-80 bg-[url(/screenshots/profile.png)] bg-size-[1000px_560px] bg-position-[left_-109px_top_-112px] bg-no-repeat" />
           }
@@ -99,9 +97,9 @@ function BentoSection() {
           className="max-lg:rounded-t-4xl lg:col-span-3 lg:rounded-tl-4xl"
         />
         <BentoCard
-          eyebrow="Analysis"
-          title="Undercut your competitors"
-          description="With our advanced data mining, you’ll know which companies your leads are talking to and exactly how much they’re being charged."
+          eyebrow="Step 2"
+          title="Find and Verify Decision-Makers"
+          description="We research and verify real decision-makers who match your target audience, checking every prospect for accuracy to ensure high-quality meetings."
           graphic={
             <div className="absolute inset-0 bg-[url(/screenshots/competitors.png)] bg-size-[1100px_650px] bg-position-[left_-38px_top_-73px] bg-no-repeat" />
           }
@@ -109,9 +107,9 @@ function BentoSection() {
           className="lg:col-span-3 lg:rounded-tr-4xl"
         />
         <BentoCard
-          eyebrow="Speed"
-          title="Built for power users"
-          description="It’s never been faster to cold email your entire contact list using our streamlined keyboard shortcuts."
+          eyebrow="Step 3"
+          title="Craft and Send Cold Emails"
+          description="We send cold emails that spark real conversations and book meetings with genuine interest."
           graphic={
             <div className="flex size-full pt-10 pl-10">
               <Keyboard highlighted={['LeftCommand', 'LeftShift', 'D']} />
@@ -120,16 +118,16 @@ function BentoSection() {
           className="lg:col-span-2 lg:rounded-bl-4xl"
         />
         <BentoCard
-          eyebrow="Source"
-          title="Get the furthest reach"
-          description="Bypass those inconvenient privacy laws to source leads from the most unexpected places."
+          eyebrow="Step 4"
+          title="Book Qualified Meetings for You"
+          description="We handle all communication and scheduling. You get notified only when a prospect agrees to meet."
           graphic={<LogoCluster />}
           className="lg:col-span-2"
         />
         <BentoCard
-          eyebrow="Limitless"
-          title="Sell globally"
-          description="Radiant helps you sell in locations currently under international embargo."
+          eyebrow="Step 5"
+          title="Pay Only for Success"
+          description="You pay only when a meeting actually happens. If a meeting is skipped, canceled, or the prospect doesn’t fit your target audience, you get a full refund."
           graphic={<Map />}
           className="max-lg:rounded-b-4xl lg:col-span-2 lg:rounded-br-4xl"
         />
@@ -276,18 +274,17 @@ export default function Home() {
         <Container className="mt-10">
           <LogoCloud />
         </Container>
-        <Process />
-        <Pricing />
-        <Container className="mt-10">
-          <LogoCloudCerts />
-        </Container>
-
-        <div className="pt-32">
+        <div className="pt-32 pb-32" id="process">
           <BentoSection />
+        </div>
+        <div id="pricing">
+          <Pricing />
+        </div>
+
+        <div>
           <Testimonials />
         </div>
         <Faq />
-        <Contact />
       </main>
       <Footer />
     </div>
