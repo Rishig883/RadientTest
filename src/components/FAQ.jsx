@@ -41,13 +41,13 @@ const faqs = [
 
 export function Faq() {
   return (
-    <div className="mx-2 mt-2 rounded-4xl bg-gray-900">
+    <div className="bg-white">
       <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8 lg:py-40">
         <div className="mx-auto max-w-4xl">
-          <h2 className="text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+          <h2 className="text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
             Frequently asked questions
           </h2>
-          <dl className="mt-16 divide-y divide-white/10">
+          <dl className="mt-16 divide-y divide-gray-900/10">
             {faqs.map((faq) => (
               <Disclosure
                 key={faq.question}
@@ -55,7 +55,7 @@ export function Faq() {
                 className="py-6 first:pt-0 last:pb-0"
               >
                 <dt>
-                  <DisclosureButton className="group flex w-full items-start justify-between text-left text-white">
+                  <DisclosureButton className="group flex w-full items-start justify-between text-left text-gray-900">
                     <span className="text-base/7 font-semibold">
                       {faq.question}
                     </span>
@@ -72,7 +72,7 @@ export function Faq() {
                   </DisclosureButton>
                 </dt>
                 <DisclosurePanel as="dd" className="mt-2 pr-12">
-                  <p className="text-base/7 text-gray-400">{faq.answer}</p>
+                  <p className="text-base/7 text-gray-600">{faq.answer}</p>
                 </DisclosurePanel>
               </Disclosure>
             ))}

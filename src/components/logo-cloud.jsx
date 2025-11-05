@@ -9,28 +9,28 @@ export function LogoCloud({ className }) {
       )}
     >
       <img
-        alt="SavvyCal"
-        src="/logo-cloud/savvycal.svg"
+        alt="Frost"
+        src="/logo-cloud/frost.png"
         className="h-9 max-sm:mx-auto sm:h-8 lg:h-12"
       />
       <img
-        alt="Laravel"
-        src="/logo-cloud/laravel.svg"
+        alt="Bulldog"
+        src="/logo-cloud/bulldog.png"
         className="h-9 max-sm:mx-auto sm:h-8 lg:h-12"
       />
       <img
-        alt="Tuple"
-        src="/logo-cloud/tuple.svg"
+        alt="casdon"
+        src="/logo-cloud/logo1.svg"
         className="h-9 max-sm:mx-auto sm:h-8 lg:h-12"
       />
       <img
-        alt="Transistor"
-        src="/logo-cloud/transistor.svg"
+        alt="Fixter"
+        src="/logo-cloud/logo3.svg"
         className="h-9 max-sm:mx-auto sm:h-8 lg:h-12"
       />
       <img
-        alt="Statamic"
-        src="/logo-cloud/statamic.svg"
+        alt="Vitabiotics"
+        src="/logo-cloud/b2b1.svg"
         className="h-9 max-sm:mx-auto sm:h-8 lg:h-12"
       />
     </div>

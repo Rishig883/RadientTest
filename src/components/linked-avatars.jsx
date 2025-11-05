@@ -37,7 +37,7 @@ function Rings() {
           cx="250"
           cy="250"
           r={n * 14 + 4}
-          className="stroke-white"
+          className="stroke-black"
         />
       ))}
     </svg>
