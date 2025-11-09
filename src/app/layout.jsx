@@ -23,9 +23,19 @@ export default function RootLayout({ children }) {
           title="The Radiant Blog"
           href="/blog/feed.xml"
         />
+        <link
+          href="https://assets.calendly.com/assets/external/widget.css"
+          rel="stylesheet"
+        />
+        <script
+          src="https://assets.calendly.com/assets/external/widget.js"
+          type="text/javascript"
+          async
+        ></script>
       </head>
       <body className="text-gray-950 antialiased">
         {children}
+
         <SanityLive revalidateSyncTags={revalidateSyncTags} />
       </body>
     </html>

@@ -1,18 +1,29 @@
+'use client'
+
 import { PlusGrid, PlusGridItem, PlusGridRow } from '@/components/plus-grid'
-import {
-  BuildingOffice2Icon,
-  EnvelopeIcon,
-  PhoneIcon,
-} from '@heroicons/react/24/outline'
-import { Button } from './button'
+import { useForm, ValidationError } from '@formspree/react'
+import { EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/outline'
+import { useEffect, useRef } from 'react'
 import { Container } from './container'
 import { Gradient } from './gradient'
 import { Link } from './link'
 import { Logo } from './logoCalavor'
-import { Subheading } from './text'
 
-// Contact content (simplified background)
 function ContactContent() {
+  const [state, handleSubmit] = useForm('myzlgjza')
+  const formRef = useRef(null)
+
+  // ✅ When succeeded, clear form inputs
+  useEffect(() => {
+    if (state.succeeded && formRef.current) {
+      formRef.current.reset()
+      const timer = setTimeout(() => {
+        state.succeeded = false // reset success state visually (optional)
+      }, 4000)
+      return () => clearTimeout(timer)
+    }
+  }, [state.succeeded])
+
   return (
     <div className="relative isolate">
       <div className="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2">
@@ -20,15 +31,14 @@ function ContactContent() {
         <div className="relative px-6 pt-20 pb-20 sm:pt-24 lg:static lg:px-8 lg:py-32">
           <div className="mx-auto max-w-xl lg:mx-0 lg:max-w-lg">
             <h2 className="text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
-              Get in touch
+              Let’s Talk Growth
             </h2>
             <p className="mt-6 text-lg/8 text-gray-600">
-              Proin volutpat consequat porttitor cras nullam gravida at. Orci
-              molestie a eu arcu. Sed ut tincidunt integer elementum id sem.
-              Arcu sed malesuada et magna.
+              Want to start booking qualified meetings or learn more about our
+              process? We’d love to hear from you.
             </p>
             <dl className="mt-10 space-y-4 text-base/7 text-gray-600">
-              <div className="flex gap-x-4">
+              {/* <div className="flex gap-x-4">
                 <dt className="flex-none">
                   <BuildingOffice2Icon
                     aria-hidden="true"
@@ -36,11 +46,11 @@ function ContactContent() {
                   />
                 </dt>
                 <dd>
-                  545 Mavis Island
+                  200 N LaSalle Street, Suite 2502
                   <br />
-                  Chicago, IL 99191
+                  Chicago, IL 60601
                 </dd>
-              </div>
+              </div> */}
               <div className="flex gap-x-4">
                 <dt className="flex-none">
                   <PhoneIcon
@@ -50,10 +60,10 @@ function ContactContent() {
                 </dt>
                 <dd>
                   <a
-                    href="tel:+1 (555) 234-5678"
+                    href="tel:+1 (217) 395-3725"
                     className="hover:text-gray-900"
                   >
-                    +1 (555) 234-5678
+                    +1 (217) 395-3725
                   </a>
                 </dd>
               </div>
@@ -66,10 +76,10 @@ function ContactContent() {
                 </dt>
                 <dd>
                   <a
-                    href="mailto:hello@example.com"
+                    href="mailto:info@calavor.com"
                     className="hover:text-gray-900"
                   >
-                    hello@example.com
+                    info@calavor.com
                   </a>
                 </dd>
               </div>
@@ -77,13 +87,20 @@ function ContactContent() {
           </div>
         </div>
 
-        {/* Right column (form) */}
+        {/* ✅ Right column (Formspree form stays visible) */}
         <form
-          action="#"
-          method="POST"
+          ref={formRef}
+          onSubmit={handleSubmit}
           className="px-6 pt-10 pb-16 sm:pb-24 lg:px-8 lg:py-32"
         >
           <div className="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
+            {/* ✅ Success message */}
+            {state.succeeded && (
+              <div className="mb-6 rounded-md bg-green-100 p-4 text-sm font-medium text-green-700">
+                ✅ Message sent successfully!
+              </div>
+            )}
+
             <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
               <div>
                 <label
@@ -132,7 +149,13 @@ function ContactContent() {
                     name="email"
                     type="email"
                     autoComplete="email"
+                    required
                     className="block w-full rounded-md bg-white/70 px-3.5 py-2 text-base text-gray-900 outline-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:outline-indigo-600"
+                  />
+                  <ValidationError
+                    prefix="Email"
+                    field="email"
+                    errors={state.errors}
                   />
                 </div>
               </div>
@@ -148,46 +171,29 @@ function ContactContent() {
                     id="message"
                     name="message"
                     rows={4}
+                    required
                     className="block w-full rounded-md bg-white/70 px-3.5 py-2 text-base text-gray-900 outline-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:outline-indigo-600"
-                    defaultValue={''}
+                  />
+                  <ValidationError
+                    prefix="Message"
+                    field="message"
+                    errors={state.errors}
                   />
                 </div>
               </div>
             </div>
-            <div className="mt-8 flex justify-end">
+
+            <div className="mt-8 flex justify-start">
               <button
                 type="submit"
-                className="rounded-md bg-pink-500 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                disabled={state.submitting}
+                className="rounded-md bg-pink-500 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-xs hover:bg-pink-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:opacity-60"
               >
-                Send message
+                {state.submitting ? 'Sending...' : 'Send message'}
               </button>
             </div>
           </div>
         </form>
-      </div>
-    </div>
-  )
-}
-
-function CallToAction() {
-  return (
-    <div className="relative pt-20 pb-16 text-center sm:py-24">
-      <hgroup>
-        <Subheading>Get started</Subheading>
-        <p className="mt-6 text-3xl font-medium tracking-tight text-gray-950 sm:text-5xl">
-          Ready to dive in?
-          <br />
-          Start your free trial today.
-        </p>
-      </hgroup>
-      <p className="mx-auto mt-6 max-w-xs text-sm/6 text-gray-500">
-        Get the cheat codes for selling and unlock your team&apos;s revenue
-        potential.
-      </p>
-      <div className="mt-6">
-        <Button className="w-full sm:w-auto" href="#">
-          Get started
-        </Button>
       </div>
     </div>
   )
@@ -216,33 +222,10 @@ function Sitemap() {
   return (
     <>
       <div>
-        <SitemapHeading>Product</SitemapHeading>
+        <SitemapHeading>Legal</SitemapHeading>
         <SitemapLinks>
-          <SitemapLink href="/pricing">Pricing</SitemapLink>
-          <SitemapLink href="#">Analysis</SitemapLink>
-          <SitemapLink href="#">API</SitemapLink>
-        </SitemapLinks>
-      </div>
-      <div>
-        <SitemapHeading>Company</SitemapHeading>
-        <SitemapLinks>
-          <SitemapLink href="#">Careers</SitemapLink>
-          <SitemapLink href="/blog">Blog</SitemapLink>
-          <SitemapLink href="/company">Company</SitemapLink>
-        </SitemapLinks>
-      </div>
-      <div>
-        <SitemapHeading>Support</SitemapHeading>
-        <SitemapLinks>
-          <SitemapLink href="#">Help center</SitemapLink>
-          <SitemapLink href="#">Community</SitemapLink>
-        </SitemapLinks>
-      </div>
-      <div>
-        <SitemapHeading>Company</SitemapHeading>
-        <SitemapLinks>
-          <SitemapLink href="#">Terms of service</SitemapLink>
-          <SitemapLink href="#">Privacy policy</SitemapLink>
+          <SitemapLink href="/tos">Terms of service</SitemapLink>
+          <SitemapLink href="/privacy">Privacy policy</SitemapLink>
         </SitemapLinks>
       </div>
     </>
@@ -311,7 +294,7 @@ function SocialLinks() {
 function Copyright() {
   return (
     <div className="text-sm/6 text-gray-950">
-      &copy; {new Date().getFullYear()} Radiant Inc.
+      &copy; {new Date().getFullYear()} Calavor Inc.
     </div>
   )
 }
@@ -324,17 +307,14 @@ export function Footer() {
         <Container>
           <ContactContent />
           <PlusGrid className="pb-16">
-            <PlusGridRow>
-              <div className="grid grid-cols-2 gap-y-10 pb-6 lg:grid-cols-6 lg:gap-8">
-                <div className="col-span-2 flex">
-                  <PlusGridItem className="pt-6 lg:pb-6">
-                    <Logo className="h-9" />
-                  </PlusGridItem>
-                </div>
-                <div className="col-span-2 grid grid-cols-2 gap-x-8 gap-y-12 lg:col-span-4 lg:grid-cols-subgrid lg:pt-6">
-                  <Sitemap />
-                </div>
-              </div>
+            <PlusGridRow className="flex items-start justify-between pb-6">
+              <PlusGridItem className="pt-6 lg:pb-6">
+                <Logo className="h-9" />
+              </PlusGridItem>
+
+              <PlusGridItem className="pt-6">
+                <Sitemap />
+              </PlusGridItem>
             </PlusGridRow>
             <PlusGridRow className="flex justify-between">
               <div>
@@ -344,7 +324,7 @@ export function Footer() {
               </div>
               <div className="flex">
                 <PlusGridItem className="flex items-center gap-8 py-3">
-                  <SocialLinks />
+                  {/* <SocialLinks /> */}
                 </PlusGridItem>
               </div>
             </PlusGridRow>

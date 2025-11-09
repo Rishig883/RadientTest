@@ -1,57 +1,17 @@
 import { Faq } from '@/components/FAQ'
 import { BentoCard } from '@/components/bento-card'
-import { Button } from '@/components/button'
 import { Container } from '@/components/container'
 import { Footer } from '@/components/footer'
-import { Gradient } from '@/components/gradient'
-import { Link } from '@/components/link'
+import { Hero } from '@/components/hero'
 import { LinkedAvatars } from '@/components/linked-avatars'
 import { LogoCloud } from '@/components/logo-cloud'
 import { LogoCluster } from '@/components/logo-cluster'
-import { Navbar } from '@/components/navbar'
 import { Pricing } from '@/components/pricing'
 import { Heading, Subheading } from '@/components/text'
-import { ChevronRightIcon } from '@heroicons/react/16/solid'
 
 export const metadata = {
   description:
     'Radiant helps you sell more by revealing sensitive information about your customers.',
-}
-
-function Hero() {
-  return (
-    <div className="relative">
-      <Gradient className="absolute inset-2 bottom-0 rounded-4xl ring-1 ring-black/5 ring-inset" />
-      <Container className="relative">
-        <Navbar
-          banner={
-            <Link
-              href="#pricing2"
-              className="flex items-center gap-1 rounded-full bg-fuchsia-950/35 px-3 py-0.5 text-sm/6 font-medium text-white data-hover:bg-fuchsia-950/30"
-            >
-              Intro Offer: Book Your First 5 Meetings for Just $249
-              <ChevronRightIcon className="size-4" />
-            </Link>
-          }
-        />
-        <div className="pt-16 pb-24 sm:pt-24 sm:pb-32 md:pt-32 md:pb-48">
-          <h1 className="font-display text-6xl/[0.9] font-medium tracking-tight text-balance text-gray-950 sm:text-8xl/[0.8] md:text-9xl/[0.8]">
-            Revenue on Schedule.
-          </h1>
-          <p className="mt-8 max-w-lg text-xl/7 font-medium text-gray-950/75 sm:text-2xl/8 lg:max-w-3xl">
-            Predictable growth starts with predictable meetings. <br /> We
-            connect you with decision-makers who are ready to talk business.
-          </p>
-          <div className="mt-12 flex flex-col gap-x-6 gap-y-4 sm:flex-row">
-            <Button href="#">Start Booking Meetings</Button>
-            <Button variant="secondary" href="#process">
-              How it works
-            </Button>
-          </div>
-        </div>
-      </Container>
-    </div>
-  )
 }
 
 function BentoSection() {
@@ -68,7 +28,7 @@ function BentoSection() {
           title="Define Your Ideal Client Profile"
           description="We define your target audience by analyzing industry, company size, roles, and location to build a precise profile that guides every outreach."
           graphic={
-            <div className="h-80 bg-[url(/screenshots/bento1big.png)] bg-cover bg-[center_top_0px]" />
+            <div className="h-80 bg-[url(/screenshots/bento1big.png)] bg-cover bg-[center_top_0px] max-lg:h-70 max-lg:bg-[left_top]" />
           }
           fade={['bottom']}
           className="max-lg:rounded-t-4xl lg:col-span-3 lg:rounded-tl-4xl"
@@ -78,7 +38,7 @@ function BentoSection() {
           title="Find and Verify Decision-Makers"
           description="We research and verify real decision-makers who match your target audience, checking every prospect for accuracy to ensure high-quality meetings."
           graphic={
-            <div className="h-80 bg-[url(/screenshots/bento2big.png)] bg-cover bg-[center_top_0px]" />
+            <div className="h-80 bg-[url(/screenshots/bento2big.png)] bg-cover bg-[center_top_0px] max-lg:h-70 max-lg:bg-[left_top]" />
           }
           fade={['bottom']}
           className="lg:col-span-3 lg:rounded-tr-4xl"
@@ -86,7 +46,7 @@ function BentoSection() {
         <BentoCard
           eyebrow="Step 3"
           title="Craft and Send Cold Emails"
-          description="We send cold emails that spark real conversations and book meetings with genuine interest."
+          description="We send cold emails to business owners and book meetings with genuine interest."
           graphic={<LogoCluster />}
           className="lg:col-span-2 lg:rounded-bl-4xl"
         />
@@ -144,7 +104,7 @@ const timeline = [
 
 export function Process() {
   return (
-    <div className="bg-white py-10 sm:py-22 sm:pt-32">
+    <div className="py-10 sm:py-22 sm:pt-32">
       <Container className="pb-8 sm:pb-14">
         <Subheading>Sales</Subheading>
         <Heading as="h3" className="mt-2 max-w-3xl">
@@ -157,7 +117,7 @@ export function Process() {
             <div key={item.name}>
               <time
                 dateTime={item.dateTime}
-                className="flex items-center text-sm/6 font-semibold [color:#DB7EDB] text-pink-600"
+                className="flex items-center text-sm/6 font-semibold text-pink-600"
               >
                 <svg
                   viewBox="0 0 4 4"
@@ -190,11 +150,11 @@ export default function Home() {
   return (
     <div className="overflow-hidden">
       <Hero />
-      <main>
-        <Container className="mt-10">
+      <main className="!bg-gray-100">
+        <Container className="bg-gray-100 pt-10">
           <LogoCloud />
         </Container>
-        <div className="pt-32 pb-32" id="process">
+        <div className="bg-gray-100 pt-16 pb-16 md:pt-32 md:pb-32" id="process">
           <BentoSection />
         </div>
         <div id="pricing">
@@ -202,7 +162,9 @@ export default function Home() {
         </div>
 
         <div>{/* <Testimonials /> */}</div>
-        <Faq />
+        <div id="faq">
+          <Faq />
+        </div>
       </main>
       <Footer />
     </div>

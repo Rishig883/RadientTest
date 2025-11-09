@@ -1,3 +1,5 @@
+'use client'
+
 import { Container } from '@/components/container'
 import { Heading, Subheading } from '@/components/text'
 import { CheckIcon } from '@heroicons/react/20/solid'
@@ -10,6 +12,13 @@ const includedFeatures = [
 ]
 
 export function Pricing() {
+  const openCalendly = () => {
+    if (window.Calendly) {
+      window.Calendly.initPopupWidget({
+        url: 'https://calendly.com/calavor/30min',
+      })
+    }
+  }
   return (
     <div className="mx-2 mt-2 rounded-4xl bg-gray-900 py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8" id="pricing2">
@@ -65,7 +74,7 @@ export function Pricing() {
                   </span>
                 </p>
                 <a
-                  href="#"
+                  onClick={openCalendly}
                   className="mt-10 block w-full rounded-md bg-pink-500 px-3 py-2 text-center text-sm font-semibold text-white shadow-none hover:bg-pink-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-500"
                 >
                   Start Booking Meetings
@@ -91,7 +100,7 @@ export function Pricing() {
             </p>
           </div>
           <a
-            href="#"
+            onClick={openCalendly}
             className="mt-1 rounded-md bg-pink-500 px-3.5 py-2 text-sm/6 font-semibold text-white inset-ring inset-ring-white/5 hover:bg-pink-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/75"
           >
             Claim Offer <span aria-hidden="true">&rarr;</span>

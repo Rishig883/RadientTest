@@ -12,9 +12,9 @@ import { Logo } from './logoCalavor'
 import { PlusGrid, PlusGridItem, PlusGridRow } from './plus-grid'
 
 const links = [
-  { href: '/pricing', label: 'Pricing' },
-  { href: '/company', label: 'Company' },
-  { href: '/blog', label: 'Blog' },
+  { href: '#pricing', label: 'Pricing' },
+  { href: '#process', label: 'Process' },
+  { href: '#faq', label: 'FAQ' },
   { href: '/login', label: 'Login' },
 ]
 
