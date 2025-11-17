@@ -5,8 +5,8 @@ import Script from 'next/script' // ✅ Add this import
 
 export const metadata = {
   title: {
-    template: '%s - Radiant',
-    default: 'Radiant - Close every deal',
+    template: '%s - Calavor',
+    default: 'Calavor - Revenue on Schedule.',
   },
 }
 

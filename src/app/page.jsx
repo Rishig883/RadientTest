@@ -11,7 +11,7 @@ import { Heading, Subheading } from '@/components/text'
 
 export const metadata = {
   description:
-    'Radiant helps you sell more by revealing sensitive information about your customers.',
+    'Predictable growth starts with predictable meetings. We connect you with decision-makers who are ready to talk business.',
 }
 
 function BentoSection() {

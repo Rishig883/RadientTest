@@ -9,7 +9,7 @@ import { Heading, Lead, Subheading } from '@/components/text'
 export const metadata = {
   title: 'Company',
   description:
-    'We’re on a mission to transform revenue organizations by harnessing vast amounts of illegally acquired customer data.',
+    'Predictable growth starts with predictable meetings. We connect you with decision-makers who are ready to talk business.',
 }
 
 function Header() {
