@@ -26,7 +26,7 @@ export function Hero() {
               href="#pricing2"
               className="flex items-center gap-1 rounded-full bg-fuchsia-950/35 px-3 py-0.5 text-sm/6 font-medium text-white data-hover:bg-fuchsia-950/30"
             >
-              Intro Offer: Book Your First 5 Meetings for Just $249
+              Intro Offer: Book the First 3 Meetings for Free
               <ChevronRightIcon className="size-4" />
             </Link>
           }

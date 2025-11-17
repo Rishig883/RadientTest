@@ -91,11 +91,11 @@ export function Pricing() {
           <div className="lg:min-w-0 lg:flex-1" id="offer">
             <h3 className="text-base/7 font-semibold text-white">
               <span className="text-pink-500">Intro Offer:</span> Book Your
-              First 5 Meetings for Just $249
+              First 3 Meetings for Free.
             </h3>
             <p className="mt-2 text-base/7 text-gray-400">
-              Get your first five qualified meetings with real decision-makers
-              for just $249. Afterward, continue at our standard rate. <br />
+              Get your first three qualified meetings with real decision-makers
+              for Free. Afterward, continue at our standard rate. <br />
               Same process. Same guarantees. Exceptional value.
             </p>
           </div>
