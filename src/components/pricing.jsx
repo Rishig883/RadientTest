@@ -67,7 +67,7 @@ export function Pricing() {
                 </p>
                 <p className="mt-6 flex items-baseline justify-center gap-x-2">
                   <span className="text-5xl font-semibold tracking-tight text-white">
-                    $150
+                    $99
                   </span>
                   <span className="text-sm/6 font-semibold tracking-wide text-gray-400">
                     USD
