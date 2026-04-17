@@ -37,7 +37,8 @@ export function Hero() {
           </h1>
           <p className="mt-8 max-w-lg text-xl/7 font-medium text-gray-950/75 sm:text-2xl/8 lg:max-w-3xl">
             Predictable growth starts with predictable meetings. <br />
-            We connect you with decision-makers who are ready to talk business.
+            We create a consistent flow of qualified opportunities for your
+            sales pipeline.
           </p>
           <div className="mt-12 flex flex-col gap-x-6 gap-y-4 sm:flex-row">
             <Button onClick={openCalendly}>Start Booking Meetings</Button>
